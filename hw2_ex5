@@ -1,0 +1,13 @@
+import random
+
+listik = ['самовар', 'весна', 'лето']
+word = random.randint(0, len(listik)-1)
+character = random.choice(list(listik[word]))
+print(listik[word].replace(character, "?", 1))
+q = input("Введите букву: ")
+if q == character:
+    print("Победа! ")
+    print(f"Слово: {listik[word]}")
+else:
+    print("Увы! Попробуйте в другой раз.")
+    print(f"Слово: {listik[word]}")
