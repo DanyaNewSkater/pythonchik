@@ -1,0 +1,44 @@
+rain = input("Идёт ли дождь?(yes/no) ").lower()
+if rain == "yes":
+    wind = input("Ветрено ли на улице?(yes/no) ")
+    print("It is too windy for an umbrella " if wind == "yes" else "Take an umbrella ")
+
+
+string = input("Введите первую строку стихотворения ")
+print(len(string))
+position1 = int(input("начальный индекс равен "))
+position2= int(input("конечный индекс равен "))
+print(string[position1 : position2])
+
+
+import math
+number = int(input("Введите число > 500 "))
+print(round(math.sqrt(number), 2))
+
+
+name = input("Введите имя ")
+if len(name)<5:
+    print((name+input("Введите фамилию ")).upper())
+else:
+    print(name.lower())
+
+
+name = input("Введите имя в нижнем регистре ").title()
+familyname = input("Введите фамилию в нижнем регистре ").title()
+print(name + " " + familyname)
+
+
+import math
+type = input("Введите тип фигуры ").lower()
+if type == "круг":
+    print("Площадь круга: " + str(round(math.pi, 2)*int(input("введите радиус "))**2))
+elif type == "треугольник":
+    a = int(input("Введите сторону 1 "))
+    b = int(input("Введите сторону 2 "))
+    c = int(input("Введите сторону 3 "))
+    p = (a + b + c)/2
+    print("Площадь треугольника:" + str(round(math.sqrt(p*(p-a)*(p-b)*(p-c)), 2)))
+else:
+    a = int(input("Введите сторону 1 "))
+    b = int(input("Введите сторону 2 "))
+    print("Площадь прямоугольника: " + str(a*b))
