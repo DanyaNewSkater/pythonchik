@@ -1,0 +1,55 @@
+import random
+x = random.randint(1,10)
+users_x = int(input("Угадайте число от 1 до 10 "))
+while users_x!=x:
+    print("Введённое число " + "больше " if users_x>x else "меньше " + "загаданного! ")
+    users_x = int(input("Угадайте число от 1 до 10 "))
+print("Вы угадали!!! ")
+
+
+
+import random
+
+
+def rand_parol():
+    x = random.randint(7, 10)
+    code = ""
+    for i in range(x):
+        char = random.randint(33, 126)
+        code += chr(char)
+    return code
+
+
+def safety_of_parol(parol: str) -> bool:
+    up = 0
+    low = 0
+    dig = 0
+    for i in parol:
+        if i.islower():
+            low += 1
+        elif i.isdigit():
+            dig += 1
+        elif i.isupper():
+            up += 1
+        elif low >= 1 and up >= 1 and dig >= 1:
+            break
+        else:
+            continue
+    if low >= 1 and up >= 1 and dig >= 1 and len(parol) >= 8:
+        return True
+    else:
+        return False
+
+
+def amount():
+    j = 1
+    true_q = rand_parol()
+    while safety_of_parol(true_q) == False:
+        print(true_q)
+        j+=1
+        true_q = rand_parol()
+    return [true_q,j]
+print(amount())
+
+
+
