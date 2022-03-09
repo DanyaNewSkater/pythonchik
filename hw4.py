@@ -1,5 +1,4 @@
-import math
-import random
+import math, random, statistics
 
 
 def my_log(lst: list) -> list:
@@ -10,30 +9,20 @@ spis = [1, 3, 2.5, -1, 9, 0, 2.71]
 print(my_log(spis))
 
 mass = []
-meann = 0
 mass1 = []
-med = 0
-mass2 = []
-for i in range(random.randint(5, 20)):
-    mass.append(random.randint(1, 1000))
+for i in range(random.randint(10, 20)):
+    mass.append(random.randint(50, 100))
 print(mass)
-if mass.index(max(mass)) - mass.index(min(mass)) <= -1:
-    mass1 = mass[mass.index(max(mass))+1:mass.index(min(mass))]
-    meann = sum(mass1)/len(mass1)
-    print(meann)
-elif mass.index(max(mass)) - mass.index(min(mass)) >= 1:
-    mass1 = mass[mass.index(min(mass)) + 1:mass.index(max(mass))]
-    mass1 = sorted(mass1)
-    if len(mass1) % 2 == 0:
-        med = sum(mass1[math.floor(len(mass1) / 2):math.floor(len(mass1) / 2) + 2]) / 2
-    else:
-        med = mass1[math.floor(len(mass1)/2)]
-    mass2 = mass[0:mass.index(min(mass))+1]
-    mass2.append(med)
-    mass2 += mass[mass.index(max(mass)):-1]
-    mass2.append(mass[-1])
-    print(mass2)
-
+maxim = mass.index(max(mass))
+misha = mass.index(min(mass))
+if misha < maxim:
+    print(statistics.mean(mass[misha:maxim]))
+else:
+    mass1 += mass[0:maxim+1]
+    mass1.append(statistics.median(mass[maxim+1: misha]))
+    mass1 += mass[misha:-1]
+    mass1.append(mass[-1])
+    print(mass1)
 
 n = [1, 5, 6.3, 6, None, 2.0, -4, None]
 meannn = 0
