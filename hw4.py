@@ -36,20 +36,9 @@ for tt in n:
         n[n.index(tt)] = meannn/count
 print(n)
 
-text = """Call me Ishmael. Some years ago - never mind how long precisely - having\n
-little or no money in my purse, and nothing particular to interest me\n
-on shore, I thought I would sail about a little and see the watery part\n
-of the world. It is a way I have of driving off the spleen, and regulating\n
-the circulation. - Moby Dick\n"""
-sp = []
-spfor = []
-text = text.split()
-for item in text:
-    if item.endswith("\n") and len(item)-2 > 3:
-        sp.append(spfor)
-        spfor = []
-    if len(item) > 3:
-        spfor.append(item)
-        print(spfor)
-print(sp)
-
+text = """Call me Ishmael. Some years ago - never mind how long precisely - having
+little or no money in my purse, and nothing particular to interest me
+on shore, I thought I would sail about a little and see the watery part
+of the world. It is a way I have of driving off the spleen, and regulating
+the circulation. - Moby Dick"""
+print([i.split() for i in text.split("\n")])
